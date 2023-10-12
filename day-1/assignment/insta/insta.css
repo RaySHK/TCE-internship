@@ -1,0 +1,58 @@
+#card1{
+    width: 320px;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    height: 380px;
+    font-family:  Helvetica, Arial, sans-serif;
+    border: 1px solid #e6e6e6;
+    margin-top: 100px;
+}
+h6 {
+    width: 80%; 
+    text-align: center; 
+    border-bottom: 1px solid #d8d8d8; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+    color: #a7a7a7;
+    font-size: 12px;
+    margin-left: 30px;
+} 
+
+h6 span { 
+    background:#fff; 
+    padding:0 15px; 
+    
+}
+
+input{
+    border-radius: 3px;
+    color: #ccc;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 230px;
+    font-size: 12px;
+    background-color: #f8f8f8;
+    margin-bottom: 5px;
+}
+button{
+    width: 250px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+#card2{
+    width: 340px;
+    text-align: center;
+    padding-top: 25px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    font-family:  Helvetica, Arial, sans-serif;
+    border: 1px solid #e6e6e6;
+    margin-top: 10px;
+    font-size: 14px;
+}
