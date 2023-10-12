@@ -1,0 +1,32 @@
+body{
+    /* background-color: #641f1f; */
+    background: url(https://picsum.photos/id/1084/536/354?grayscale);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* font-size: 16px;
+    line-height: 1.6em; */
+    margin: 10;
+    padding: 100px; 
+}
+
+#card{
+    border: 5px solid rebeccapurple;
+    width: 500px;
+    text-align: center;
+    padding: 10px;
+    padding-top: 20px;
+    background-color: bisque;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2{
+    text-align: center;
+    color: rebeccapurple;
+}
+
+p{
+    text-align: center;
+    color: blueviolet;
+}
+

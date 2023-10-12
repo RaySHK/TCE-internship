@@ -1,0 +1,7 @@
+CSS 
+cascading style sheet (used fr styling the web pages and web - applications)
+
+Three ways to use CSS in HTML
+1. Inline CSS
+2. Internal CSS
+3. External CSS
