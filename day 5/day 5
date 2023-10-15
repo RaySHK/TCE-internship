@@ -1,0 +1,38 @@
+Javascript is a high level programming or scripting language used to make our websites and web applications interactive
+
+Ways to add javascript to html :-
+1. Inline javascript
+2. internal javascript
+3. External javascript
+
+Some pre defined functions of javascript :-
+alert()
+prompt()
+console.log()
+document.write()
+
+variables 
+containers to store data in code
+
+variable declaration method :-
+1. var
+2. let
+3. const
+
+rules to write variables :-
+1. variables start with letter or $ or _
+2. variables include only letter,  number, _ and $
+3. variables are case sensitive
+4. variables cannot be reserved keyword like for, if, else, etc.
+
+
+datatype
+primitive - number, string, boolean, undefined, null, symbol, and bigInt
+non-primitive - object, array and date
+
+functions
+block of code designed to perform a particular task.
+
+conditional statements
+if,if-else,else
+
