@@ -1,38 +1,169 @@
-import React from "react";
-import Navbar from "./navbar";
-const Signup = () => {
-  return (
-    <>
-        <Navbar />
-        <div className='d-flex justify-content-center align-items-center mt-5 vh-50'>
-      <div className='border border-dark p-4 bg-white rounded'>
-        <form>
-            <h2 className="text-center mb-3">Sign up</h2>
-            <div className='mb-3'>
-                <label htmlFor='username'>Username</label>
-                <input type = "Name" placeholder='Username' name='Username' className='form-control' />
-            </div>
-            <div className='mb-3'>
-                <label htmlFor='email'>Email</label>
-                <input type = "email" placeholder='Email' name='Email' className='form-control' />
-            </div>
-            <div className='mb-3'>
-                <label htmlFor='password'>password</label>
-                <input type = "password" placeholder='Password' name='Password' className='form-control' />
-            </div>
-            <div className='mb-3'>
-                <input type = "checkbox" value='Login' className='custom-control custom-checkbox mx-2' />
-                <label className='custom-control-label' htmlFor='customCheck1'>Remember me</label>
-            </div>
-            <div className='mb-3 d-grid'>
-                <button className='btn btn-danger btn-block'>Sign up</button>
-            </div>
-        </form>
-      </div>
-    </div>
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./signup.css";
 
-    </>
+const Signup = () => {
+  const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState({
+    name: "",
+    email: "",
+    password: "",
+    age: "",
+    gender: "",
+    mobile: "",
+    address: "",
+  });
+
+  const { name, email, password, age, gender, mobile, address } = inputValue;
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
+  const handleError = (err) =>
+    toast.error(err, {
+      position: "bottom-left",
+    });
+
+  const handleSuccess = (msg) =>
+    toast.success(msg, {
+      position: "bottom-right",
+    });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:4500/createCustomer", {
+        email : inputValue.email,
+        ...inputValue,
+      });
+
+      if (response.status === 200) {
+        const message = response.data.msg;
+        handleSuccess(message);
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+      } else {
+        const message = response.data.msg;
+        handleError(message);
+      }
+    } catch (error) {
+      console.error(error);
+
+      if (error.response) {
+        alert(error.response.data.msg);
+      } else {
+        alert("An error occurred.");
+      }
+    }
+
+    setInputValue({
+      name: "",
+      email: "",
+      password: "",
+      age: "",
+      gender: "",
+      mobile: "",
+      address: "",
+    });
+  };
+
+  return (
+    <center>
+      <br />
+      <br />
+      <div className="form_container">
+        <h2>Signup Account</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              placeholder="Enter Your Name"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Enter Your Email"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              placeholder="Enter your Password"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="age">Age</label>
+            <input
+              type="text"
+              name="age"
+              value={age}
+              placeholder="Enter Your Age"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="gender">Gender</label>
+            <input
+              type="text"
+              name="gender"
+              value={gender}
+              placeholder="Enter Your Gender"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="mobile">Mobile</label>
+            <input
+              type="text"
+              name="mobile"
+              value={mobile}
+              placeholder="Enter Your Mobile"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              name="address"
+              value={address}
+              placeholder="Enter Your Address"
+              onChange={handleOnChange}
+            />
+          </div>
+          <button type="submit">Submit</button>
+          <span>
+            Already have an account? <Link to="/login">Login</Link>
+          </span>
+        </form>
+        <ToastContainer />
+      </div>
+    </center>
   );
 };
 
 export default Signup;
+

@@ -1,10 +1,24 @@
-import React from "react";
+import { useEffect } from "react";
 import Navbar from "./navbar";
-import { Link } from "react-router-dom";
-// import { useState } from 'react';
-// import CounterComponent from "./calc";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { ToastContainer } from "react-toastify";
 const Home = () => {
+  const navigate = useNavigate();
+  const [cookies, removeCookie] = useCookies([]);
+  useEffect(() => {
+    const verifyCookie = async () => {
+      if (!cookies.token || cookies.token === "undefined") {
+        navigate("/login");
+      }
+    };
+    verifyCookie();
+  }, [cookies, navigate, removeCookie]);
+
+  const Logout = () => {
+    removeCookie("token");
+    navigate("/login");
+  };
   return (
     <>
     <Navbar />

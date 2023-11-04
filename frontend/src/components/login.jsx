@@ -1,34 +1,97 @@
-import React from "react";
-import Navbar from "./navbar";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "./login.css";
+import { useCookies } from "react-cookie";
+
 const Login = () => {
+  const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies([]);
+  const [inputValue, setInputValue] = useState({
+    email: "",
+    password: "",
+  });
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
+  const handleError = (err) =>
+    toast.error(err, {
+      position: "bottom-left",
+    });
+  const handleSuccess = (msg) =>
+    toast.success(msg, {
+      position: "bottom-left",
+    });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await axios.post("http://localhost:4500/loginCustomer", {
+        ...inputValue,
+      });
+      const { status, data: response } = data;
+      const message = response.message;
+      if (status === 200) {
+        handleSuccess(message);
+        setCookie("token", response.token);
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      } else {
+        handleError(message);
+      }
+    } catch (error) {
+      console.log(error);
+      alert("error");
+    }
+    setInputValue({
+      ...inputValue,
+      email: "",
+      password: "",
+    });
+  };
+
   return (
-    <>
-        <Navbar />
-      <div className='d-flex justify-content-center align-items-center mt-5 vh-50'>
-      <div className='border border-dark p-4 bg-white rounded'>
-        <form>
-            <h2 className="text-center mb-3">Log in</h2>
-            <div className='mb-3'>
-                <label htmlFor='email'>Email</label>
-                <input type = "email" placeholder='Email' name='Email' className='form-control' />
-            </div>
-            <div className='mb-3'>
-                <label htmlFor='password'>password</label>
-                <input type = "password" placeholder='Password' name='Password' className='form-control' />
-            </div>
-            <div className='mb-3'>
-                <input type = "checkbox" value='Login' className='custom-control custom-checkbox mx-2' />
-                <label className='custom-control-label' htmlFor='customCheck1'>Remember me</label>
-            </div>
-            <div className='mb-3 d-grid'>
-                <button className='btn btn-danger btn-block'>Login</button>
-            </div>
+    <center>
+      <br></br>
+      <br></br>
+      <div className="form_container">
+        <h2>Login Account</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={inputValue.email}
+              placeholder="Enter your email"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={inputValue.password}
+              placeholder="Enter your password"
+              onChange={handleOnChange}
+            />
+          </div>
+          <button type="submit">Submit</button>
+          <span>
+            Already have an account? <Link to={"/signup"}>Signup</Link>
+          </span>
         </form>
+        <ToastContainer />
       </div>
-    </div>
-
-
-    </>
+    </center>
   );
 };
 
