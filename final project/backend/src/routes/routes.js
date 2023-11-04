@@ -1,19 +1,15 @@
 const express = require('express');
-
-const { createCustomer,loginCustomer,getCustomer,updateCustomer } = require('../controller/customercontroller');
-// const { createCourse,getCourse } = require('../controller/coursecontroller');
+const app = express();
+const cors = require('cors');
 const router = express.Router();
 const mongoose = require('mongoose');
-
-router.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
+const { createCustomer,loginCustomer ,getCustomer,updateCustomer,deleteCustomer } = require('../controller/customercontroller');
+app.use(cors());
 router.post('/createCustomer', createCustomer);
 router.post('/loginCustomer', loginCustomer);
 router.get('/getCustomer', getCustomer);
-router.get('/deleteCustomer', updateCustomer);
-// router.post('/createCourse', createCourse);
-// router.get('/getCourse', getCourse);
+router.delete('/deleteCustomer/:customerId', deleteCustomer);
+router.put('/updateCustomer/:customerId',updateCustomer);
 
-module.exports = router;
+
+module.exports = router;

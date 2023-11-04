@@ -1,22 +1,8 @@
 const mongoose = require('mongoose');
 const customerSchema = mongoose.Schema({
-    fname : {
+    name : {
         type: String,
         require: true
-    },
-    lname : {
-        type: String
-    },
-    username : {
-        type: String,
-        require: true,
-        unique: true
-    },
-    age : { 
-        type: Number
-    },
-    gender : {
-        type: String
     },
     email : {
         type: String,
@@ -27,6 +13,13 @@ const customerSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    age : { 
+        type: Number
+    },
+    gender : {
+        type: String
+    },
+  
     mobile : {
         type: Number,
         require: true, 
