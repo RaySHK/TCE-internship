@@ -13,21 +13,10 @@ const customerSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    age : { 
-        type: Number
-    },
-    gender : {
-        type: String
-    },
-  
     mobile : {
         type: Number,
         require: true, 
         unique: true
-    },
-    address : {
-        type: String,
-        require: true
     },
 }, 
 {timestamps: true});
