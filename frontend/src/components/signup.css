@@ -8,7 +8,7 @@
 
 label {
   font-size: 1.2rem;
-  color: #807c6e;
+  color: rgb(194, 157, 109);
 }
 
 html,
@@ -34,13 +34,13 @@ body {
   border-radius: 0.5rem;
   width: 100%;
   max-width: 400px;
-  box-shadow: 8px 8px 24px 0px rgb(224, 228, 18);
+  box-shadow: 8px 8px 8px 8px rgb(194, 157, 109);
 }
 
 .form_container > h2 {
   margin-block: 1rem;
   padding-block: 0.6rem;
-  color: rgb(163, 157, 142);
+  color: rgb(194, 157, 109);
 }
 
 .form_container > form {
@@ -58,7 +58,7 @@ body {
 .form_container input {
   border: none;
   padding: 0.5rem;
-  border-bottom: 1px solid rgb(113, 110, 103);
+  border-bottom: 1px solid rgb(194, 157, 109);
   font-size: 1.1rem;
   outline: none;
 }
@@ -69,7 +69,7 @@ body {
 }
 
 .form_container button {
-  background-color: rgb(145, 140, 134);
+  background-color: rgb(194, 157, 109);
   color: #fff;
   border: none;
   padding: 0.6rem;
@@ -80,7 +80,7 @@ body {
 
 span a {
   text-decoration: none;
-  color: rgb(123, 110, 99);
+  color: rgb(194, 157, 109);
 }
 
 .home_page {
@@ -98,11 +98,11 @@ span a {
 }
 
 .home_page span {
-  color: rgb(104, 101, 89);
+  color: rgb(194, 157, 109);
 }
 
 .home_page button {
-  background-color: rgb(83, 52, 27);
+  background-color: rgb(194, 157, 109);
   color: #fff;
   cursor: pointer;
   padding: 1rem 3rem;
@@ -113,7 +113,7 @@ span a {
 }
 
 .home_page button:hover {
-  background-color: rgb(114, 107, 97);
+  background-color: rgb(194, 157, 109);
 }
 
 

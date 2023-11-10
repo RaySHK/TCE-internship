@@ -11,13 +11,10 @@ const Signup = () => {
     name: "",
     email: "",
     password: "",
-    age: "",
-    gender: "",
     mobile: "",
-    address: "",
   });
 
-  const { name, email, password, age, gender, mobile, address } = inputValue;
+  const { name, email, password, mobile } = inputValue;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -46,11 +43,11 @@ const Signup = () => {
         ...inputValue,
       });
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         const message = response.data.msg;
         handleSuccess(message);
         setTimeout(() => {
-          navigate("/login");
+          navigate("/Home");
         }, 1000);
       } else {
         const message = response.data.msg;
@@ -70,10 +67,7 @@ const Signup = () => {
       name: "",
       email: "",
       password: "",
-      age: "",
-      gender: "",
       mobile: "",
-      address: "",
     });
   };
 
@@ -115,26 +109,6 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="age">Age</label>
-            <input
-              type="text"
-              name="age"
-              value={age}
-              placeholder="Enter Your Age"
-              onChange={handleOnChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="gender">Gender</label>
-            <input
-              type="text"
-              name="gender"
-              value={gender}
-              placeholder="Enter Your Gender"
-              onChange={handleOnChange}
-            />
-          </div>
-          <div>
             <label htmlFor="mobile">Mobile</label>
             <input
               type="text"
@@ -144,19 +118,9 @@ const Signup = () => {
               onChange={handleOnChange}
             />
           </div>
-          <div>
-            <label htmlFor="address">Address</label>
-            <input
-              type="text"
-              name="address"
-              value={address}
-              placeholder="Enter Your Address"
-              onChange={handleOnChange}
-            />
-          </div>
           <button type="submit">Submit</button>
           <span>
-            Already have an account? <Link to="/login">Login</Link>
+            Already have an account? <Link to="/">Login</Link>
           </span>
         </form>
         <ToastContainer />

@@ -1,26 +1,13 @@
 import React from "react";
 import "./navbar.css";
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import { ToastContainer } from "react-toastify";
-import { useState } from "react";
 
-const Navbar = () => {
+
+function Navbar () {
     const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
-  useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token || cookies.token === "undefined") {
-        navigate("/login");
-      }
-    };
-    verifyCookie();
-  }, [cookies, navigate, removeCookie]);
 
     const Logout = () => {
-        removeCookie("token");
-        navigate("/login");
+        navigate("/");
     };
   return (
     <>
@@ -47,27 +34,27 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <a className="nav-link active" aria-current="page" href="/Home">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/menu">
-                  AddYourFood
+                <a className="nav-link active" href="/menu">
+                  Menu
                 </a>
               </li>
-              <li class="nav-item">
-              <a class="nav-link" href="/View">Recipes</a>
+              <li className="nav-item">
+              <a className="nav-link active" href="/contact">Contact Us</a>
             </li>
               <li className="nav-item">
-                <a className="nav-link" href="/AboutUs">
+                <a className="nav-link active" href="/about">
                   About Us
                 </a>
               </li>
             </ul>
 
             <br></br>
-            <button onClick={Logout} style={{ backgroundColor: "#8f8884" }}>
+            <button onClick={Logout} style={{ backgroundColor: "rgb(255, 215, 165)" }}>
               LOGOUT
             </button>
           </div>

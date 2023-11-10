@@ -1,39 +1,34 @@
-import React from"react";
+import React from "react";
 import Navbar from "./navbar";
+import AboutImg from "./assets/coffee.jpg";
+import './about.css'
+const About = () => {
+  return (
+    <>
+    <Navbar/>
+      <section className="about" id="about">
 
-const About = () =>{
-    return(
-        <>
-        <Navbar/>
-        <header>
-        <h1>About Us</h1>
-    </header>
+        <div className="row">
+          <div className="image">
+            <img src={AboutImg} alt="" />
+          </div>
 
-    <section>
-        <h2>Our Story</h2>
-        <p>
-            Insert a brief description of your company's history and mission here.
-        </p>
-    </section>
+          <div className="content">
+            <h3>what makes our service special?</h3>
+            <p>
+            A café that caters to students with quick bites, affordable coffee, and a welcoming environment to study, hang out, or grab a snack.Our mission is to provide a cozy space for students, offering quality food and beverages that won't break the bank. 
+            </p>
+            <p>
+            Our vision is to become the go-to place for students looking for a comfortable spot to recharge, socialize, and stay fueled during long study sessions.
+            </p>
+            <a href="#" className="btn">
+              learn more
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
-    <section>
-        <h2>Our Team</h2>
-        <p>
-            Meet the people behind our company and learn about their roles.
-        </p>
-    </section>
-
-    <section>
-        <h2>Our Values</h2>
-        <p>
-            Highlight the core values and principles that your company stands for.
-        </p>
-    </section>
-
-    <footer>
-        <p>Contact us at <a href="./contact">Contact Us</a></p>
-    </footer>
-        </>
-    );
-}
 export default About;

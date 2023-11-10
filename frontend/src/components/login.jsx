@@ -3,11 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "./login.css";
-import { useCookies } from "react-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies([]);
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
@@ -38,11 +36,13 @@ const Login = () => {
       const { status, data: response } = data;
       const message = response.message;
       if (status === 200) {
+        
         handleSuccess(message);
-        setCookie("token", response.token);
         setTimeout(() => {
-          navigate("/");
+          navigate("/Home");
+          console.log(status+"==============")
         }, 1000);
+        
       } else {
         handleError(message);
       }
@@ -50,11 +50,6 @@ const Login = () => {
       console.log(error);
       alert("error");
     }
-    setInputValue({
-      ...inputValue,
-      email: "",
-      password: "",
-    });
   };
 
   return (
@@ -86,7 +81,7 @@ const Login = () => {
           </div>
           <button type="submit">Submit</button>
           <span>
-            Already have an account? <Link to={"/signup"}>Signup</Link>
+            Don't have an account? <Link to={"/signup"}>Signup</Link>
           </span>
         </form>
         <ToastContainer />

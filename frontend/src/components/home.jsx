@@ -1,24 +1,8 @@
-import { useEffect } from "react";
+import React from "react";
 import Navbar from "./navbar";
-import { Link, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import { ToastContainer } from "react-toastify";
+import ReactDOM from "react-router-dom";
 const Home = () => {
-  const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
-  useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token || cookies.token === "undefined") {
-        navigate("/login");
-      }
-    };
-    verifyCookie();
-  }, [cookies, navigate, removeCookie]);
 
-  const Logout = () => {
-    removeCookie("token");
-    navigate("/login");
-  };
   return (
     <>
     <Navbar />

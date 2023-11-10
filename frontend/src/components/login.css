@@ -21,12 +21,7 @@ body {
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  background: linear-gradient(
-    90deg,
-    rgb(176, 160, 147) 0%,
-    rgb(136, 134, 125) 35%,
-    rgba(118, 116, 108, 0.671) 100%
-  );
+  background: rgba(255, 214, 165, 0.767);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -34,18 +29,18 @@ body {
    /* display: flex;
   justify-content: center;
   align-items: center; */
-  background-color: #817878;
+  background-color: rgba(252, 204, 146, 0.767);
   padding: 2rem 3rem;
   border-radius: 0.5rem;
   width: 100%;
   max-width: 400px;
-  box-shadow: 8px 8px 24px 0px rgb(140, 141, 133);
+  box-shadow: 8px 8px 8px 8px rgb(194, 157, 109);
 }
 
 .form_container > h2 {
   margin-block: 1rem;
   padding-block: 0.6rem;
-  color: rgb(110, 107, 98);
+  color: rgb(194, 157, 109);
 }
 
 .form_container > form {
@@ -63,7 +58,7 @@ body {
 .form_container input {
   border: none;
   padding: 0.5rem;
-  border-bottom: 1px solid rgb(130, 125, 117);
+  border-bottom: 1px solid rgb(194, 157, 109);
   font-size: 1.1rem;
   outline: none;
 }
@@ -74,7 +69,7 @@ body {
 }
 
 .form_container button {
-  background-color: rgb(103, 97, 89);
+  background-color: rgb(194, 157, 109);
   color: #fff;
   border: none;
   padding: 0.6rem;
@@ -85,7 +80,7 @@ body {
 
 span a {
   text-decoration: none;
-  color: rgb(114, 107, 101);
+  color: rgb(194, 157, 109);
 }
 
 .home_page {
@@ -107,7 +102,7 @@ span a {
 }
 
 .home_page button {
-  background-color: rgb(83, 52, 27);
+  background-color: rgb(194, 157, 109);
   color: #fff;
   cursor: pointer;
   padding: 1rem 3rem;
@@ -118,7 +113,7 @@ span a {
 }
 
 .home_page button:hover {
-  background-color: rgb(143, 135, 123);
+  background-color: rgba(255, 214, 165, 0.767);
 }
 
 
